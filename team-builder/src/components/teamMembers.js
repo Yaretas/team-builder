@@ -1,9 +1,9 @@
-import React , {useState} from 'react';
+import React from 'react';
 
 export default function TeamMembers(props) {
     return (
         <div>
-            {props.teamList.map(member =>{
+            {props.teamList.map(team =>{
                 return (
                     <div key={team.id}>
                     <h2>{team.name}</h2>

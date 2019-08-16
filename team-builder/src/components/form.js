@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 export default function Form(props) {
+
     const [team, setTeam] = useState({
         id: "",
         name: "",
@@ -8,13 +9,13 @@ export default function Form(props) {
         role: ""
     });
 
-    function changeHandler(e) {
-        setTeam({...team, [e.target.name]: e.target.value});
+    function changeHandler(event) {
+        setTeam({...team, [event.target.name]: event.target.value});
     }
-}
 
-function submitFrom(e) {
-    e.preventDefault();
+
+function submitFrom(event) {
+    event.preventDefault();
 
     const addMember = {
         ...addMember,
@@ -25,10 +26,11 @@ function submitFrom(e) {
 
 return (
     <div onSubmit={submitFrom}>
-        <label htmlFor="name">Team Member Name</label>
+        <label htmlFor="name">Team Member Name: </label>
         <input type="text" name="name" placeholder="Team Member Name" value={team.name} onChange={changeHandler}/>
-        <label htmlFor="email">Member Email</label>
+        <label htmlFor="email">Member Email: </label>
         <input type="email" name="email" placeholder="Team Member Email" value={team.email} onChange={changeHandler}/>
         <button type="submit">Add to the team!</button>
     </div>
 )
+}

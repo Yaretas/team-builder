@@ -7,10 +7,18 @@ import TeamMembers from "./components/teamMembers";
 
 
 function App() {
-  const []
+  const [ member, setMember] = useState(TeamData);
+
+  const addNewMember = tmember => {
+    console.log(member);
+    setMember([...member, tmember]);
+  };
+
   return (
     <div className="App">
-
+      <h1>Enter your Team Here!</h1>
+      <Form addNewMember={addNewMember} />
+      <TeamMembers teamList={member} />
     </div>
   );
 }
